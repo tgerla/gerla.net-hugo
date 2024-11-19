@@ -5,7 +5,7 @@ date: 2024-11-18
 ---
 # About Timothy Gerla
 
-I have been working in IT automation and systems management for most of my career, beginning as an operating systems engineer at rPath, the first company to build and manage software appliances. I moved into a Sales Engineering role at rPath, then took a job at Eucalyptus, the open-source, AWS-compatible cloud platform, acquired by HP in 2014.
+Based in Chapel Hill, NC, I have been working in IT automation and systems management for most of my career, beginning as an operating systems engineer at rPath, the first company to build and manage software appliances. I moved into a Sales Engineering role at rPath, then took a job at Eucalyptus, the open-source, AWS-compatible cloud platform, acquired by HP in 2014.
 
 In 2013, I co-founded Ansible, Inc. and helped grow the business as VP of Services and Support and CTO until its acquisition by Red Hat Software in 2015. I am now providing consulting services for startups, including Anchore Inc., who are solving important security and visibility issues in container images.
 
