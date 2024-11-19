@@ -1,0 +1,29 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+# theme = 'anatole'
+
+[module]
+  [[module.imports]]
+    path = "github.com/lxndrblz/anatole"
+    disable = false
+
+[params]
+title = "Timothy Gerla"
+profilePicture = "images/profile.jpg"
+contentratio = 0.7
+doNotLoadAnimations = true
+
+[[params.socialIcons]]
+icon = "fas fa-envelope"
+title = "e-mail"
+url = "mailto:tim@gerla.net"
+
+[[params.socialIcons]]
+icon = "fab fa-linkedin"
+title = "LinkedIn"
+url = "https://www.linkedin.com/in/timothy-gerla/"
+
+[[params.socialIcons]]
+icon = "fab fa-bluesky"
+title = "BlueSky"
+url = "https://bsky.app/profile/tybstar.bsky.social"
