@@ -2,6 +2,7 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 # theme = 'anatole'
 
+
 [module]
   [[module.imports]]
     path = "github.com/lxndrblz/anatole"
@@ -12,6 +13,8 @@ title = "Timothy Gerla"
 profilePicture = "images/profile.jpg"
 contentratio = 0.7
 doNotLoadAnimations = true
+
+customCss = ["css/custom.css"]
 
 [[params.socialIcons]]
 icon = "fas fa-envelope"
