@@ -1,21 +1,107 @@
-/* Minimal custom overrides to stay close to stock Anatole */
-p,
+/* ========================================
+   Readability & Typography Overrides
+   ======================================== */
+
+/* Set root font size explicitly - rem units are relative to this */
+html {
+  font-size: 16px !important;  /* Ensure consistent base across all displays */
+}
+
+:root {
+  /* Font scale: each level ~1.2× previous */
+  --fs-base: 1.25rem;       /* 20px: comfortable body text */
+  --fs-h6: 1.5rem;          /* 24px */
+  --fs-h5: 1.8rem;          /* 28.8px */
+  --fs-h4: 2.16rem;         /* 34.5px */
+  --fs-h3: 2.59rem;         /* 41.4px */
+  --fs-h2: 3.11rem;         /* 49.8px */
+  --fs-h1: 3.73rem;         /* 59.7px */
+  
+  /* Line heights for readability */
+  --lh-tight: 1.2;          /* headings, captions */
+  --lh-normal: 1.55;        /* body paragraphs */
+  --lh-loose: 1.8;          /* long-form prose */
+  
+  /* Spacing tokens */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+}
+
+/* Body text: readable baseline */
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  font-feature-settings: "liga" 1, "kern" 1;  /* ligatures & kerning for polish */
+}
+
+p {
+  margin-bottom: var(--space-md);
+  line-height: var(--lh-normal);
+  font-size: var(--fs-base);
+}
+
+/* Apply base size to content areas */
+.post__content,
+.content,
+article {
+  font-size: var(--fs-base);
+}
+
+/* Heading hierarchy with consistent scaling */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;  /* tighten headings slightly */
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); }
+h6 { font-size: var(--fs-h6); }
+
+/* List baseline */
 li {
-    font-family: 'Open Sans', sans-serif;
-    font-size: large;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: var(--lh-normal);
+  margin-bottom: var(--space-sm);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
+/* Content measure: constrain line length to 55–75 characters */
+.post__content,
+.content {
+  max-width: 65ch;  /* ~800–850px at default font size */
+  /* Let content align naturally with other elements like dates */
 }
 
-/* Highlight media links (PDF/MuseScore) without inline HTML */
+/* Compact nested bullet lists inside post content */
+.post__content ul ul,
+.post__content ul ol,
+.post__content ol ul,
+.post__content ol ol {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    padding-left: 1.35rem;
+}
+
+.post__content ul ul li,
+.post__content ul ol li,
+.post__content ol ul li,
+.post__content ol ol li {
+    margin-bottom: 0.2rem;
+    line-height: 1.35;
+    font-size: 0.95em;
+}
+
+/* Media links: styled badges for PDFs & MuseScore */
 .content li a[href$=".pdf"],
 .content li a[href$=".musescore"],
 .content li a[href*="musescore.com"] {
@@ -65,7 +151,30 @@ h6 {
     transform: translateY(-1px);
 }
 
-/* Responsive gallery grid */
+/* Code blocks: disable ligatures for clarity */
+code, pre {
+    font-feature-settings: "liga" 0;
+    font-variant-numeric: tabular-nums;  /* monospace digits */
+}
+
+code {
+    font-size: 0.9em;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+pre {
+    line-height: 1.45;
+    padding: var(--space-md);
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+/* Text alignment: ragged-right for readability */
+p, li, blockquote {
+    text-align: left;
+}
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -119,26 +228,11 @@ h6 {
         grid-template-columns: 1fr;
     }
 }
-p,
-li {
-    font-family: 'Open Sans', sans-serif;
-    font-size: large;
-}
 
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-}
-
+/* Sidebar title styling */
 .sidebar__introduction-title,
 .sidebar__introduction-title a {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 700;
     letter-spacing: 0.18em;
     font-size: 2.4rem;
@@ -149,130 +243,27 @@ h6 {
     text-decoration: none;
 }
 
-/* Highlight media links (PDF/MuseScore) without inline HTML */
-.content li a[href$=".pdf"],
-.content li a[href$=".musescore"],
-.content li a[href*="musescore.com"] {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.2rem 0.75rem;
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-decoration: none;
-    transition: opacity 120ms ease, transform 120ms ease;
-}
-
-.content li a[href$=".pdf"] {
-    background: rgba(255, 89, 100, 0.16);
-    color: #ff8d96;
-}
-
-.content li a[href$=".musescore"],
-.content li a[href*="musescore.com"] {
-    background: rgba(80, 160, 255, 0.16);
-    color: #8cc7ff;
-}
-
-.content li a[href$=".pdf"]::before,
-.content li a[href$=".musescore"]::before,
-.content li a[href*="musescore.com"]::before {
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    font-size: 0.85rem;
-}
-
-.content li a[href$=".pdf"]::before {
-    content: "\f1c1";
-}
-
-.content li a[href$=".musescore"]::before,
-.content li a[href*="musescore.com"]::before {
-    content: "\f001";
-}
-
-.content li a[href$=".pdf"]:hover,
-.content li a[href$=".musescore"]:hover,
-.content li a[href*="musescore.com"]:hover {
-    opacity: 0.85;
-    transform: translateY(-1px);
-}
-
-/* Responsive 4x2 gallery grid */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-.gallery-grid__item {
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-}
-
-.gallery-grid__item img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transition: transform 160ms ease;
-}
-
-.gallery-grid--landscape .gallery-grid__item img {
-    aspect-ratio: 4 / 3;
-}
-
-.gallery-grid--portrait .gallery-grid__item img {
-    aspect-ratio: 3 / 4;
-}
-
-.gallery-grid__item:hover img {
-    transform: scale(1.02);
-}
-
-.gallery-grid__empty {
-    padding: 1rem;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.04);
-    text-align: center;
-    font-style: italic;
-}
-
-@media (max-width: 900px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 520px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media screen and (min-width:961px) {
-  .wrapper__sidebar {
-    width:calc(calc(1 - .8) * 100%);
-    padding:0
-  }
-}
-
+/* Mermaid diagram labels */
 span.nodeLabel p {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 1.65rem;
     font-weight: 500;
     line-height: 1.35;
 }
 
 span.edgeLabel p {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 1.25rem;
     font-weight: 300;
     line-height: 1.35;
     padding: 0.2rem 0.6rem;
+}
+
+/* Sidebar layout on wider viewports */
+@media screen and (min-width: 961px) {
+  .wrapper__sidebar {
+    width: calc(calc(1 - 0.8) * 100%);
+    padding: 0;
+  }
 }
 
