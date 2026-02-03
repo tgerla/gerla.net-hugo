@@ -1,0 +1,10 @@
+{{ if .Page.Store.Get "hasMermaid" }}
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    const mermaidtheme = 'neutral';
+    mermaid.initialize({ startOnLoad: true, theme: mermaidtheme,
+          themeVariables: {
+      nodeBorder: '#777',
+    },});
+  </script>
+{{ end }}

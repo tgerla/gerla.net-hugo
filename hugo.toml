@@ -1,6 +1,10 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 # theme = 'anatole'
+mainSections = ['posts']
+
+[pagination]
+  pagerSize = 10
 
 
 [module]
@@ -30,3 +34,43 @@ url = "https://www.linkedin.com/in/timothy-gerla/"
 icon = "fab fa-bluesky"
 title = "BlueSky"
 url = "https://bsky.app/profile/tybstar.bsky.social"
+
+[params.mermaid]
+enable = true
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/posts/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 30
+
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 40
+
+  [[menu.main]]
+    identifier = "bass-tabs"
+    name = "Bass Tabs"
+    url = "/music/bass-tabs/"
+    weight = 50
+
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact/"
+    weight = 60

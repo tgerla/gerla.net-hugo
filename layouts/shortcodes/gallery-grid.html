@@ -1,0 +1,18 @@
+{{- $match := default "*" (.Get "match") -}}
+{{- $orientation := default "landscape" (.Get "orientation") -}}
+{{- $allowed := slice "landscape" "portrait" -}}
+{{- if not (in $allowed $orientation) }}
+  {{- $orientation = "landscape" -}}
+{{- end -}}
+{{- $resources := .Page.Resources.Match $match -}}
+{{- if $resources }}
+<div class="gallery-grid gallery-grid--{{ $orientation }}">
+  {{- range $resources }}
+  <figure class="gallery-grid__item">
+    <img src="{{ .RelPermalink }}" alt="{{ .Title | default .Name }}" loading="lazy">
+  </figure>
+  {{- end }}
+</div>
+{{- else }}
+<p class="gallery-grid__empty">Gallery images coming soon.</p>
+{{- end }}

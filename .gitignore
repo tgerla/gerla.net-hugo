@@ -1,0 +1,18 @@
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Editor/tool state
+.vscode/
+.idea/
+*.swp
+
+# Package tooling (if you ever run npm/yarn)
+node_modules/
+package-lock.json
+yarn.lock
