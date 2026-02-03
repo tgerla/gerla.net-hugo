@@ -2,9 +2,9 @@
    Readability & Typography Overrides
    ======================================== */
 
-/* Set root font size explicitly - rem units are relative to this */
+/* Set root font size - rem units are relative to this */
 html {
-  font-size: 16px !important;  /* Ensure consistent base across all displays */
+  font-size: 100% !important;  /* Override theme's 62.5% which breaks rem calculations */
 }
 
 :root {
@@ -33,7 +33,7 @@ html {
 /* Body text: readable baseline */
 body {
   font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: var(--fs-base);
+  font-size: var(--fs-base) !important;  /* Override theme's 1.6rem */
   line-height: var(--lh-normal);
   font-feature-settings: "liga" 1, "kern" 1;  /* ligatures & kerning for polish */
 }
@@ -41,14 +41,14 @@ body {
 p {
   margin-bottom: var(--space-md);
   line-height: var(--lh-normal);
-  font-size: var(--fs-base);
+  font-size: var(--fs-base) !important;  /* Override theme defaults */
 }
 
 /* Apply base size to content areas */
 .post__content,
 .content,
 article {
-  font-size: var(--fs-base);
+  font-size: var(--fs-base) !important;  /* Override theme's smaller text */
 }
 
 /* Heading hierarchy with consistent scaling */
