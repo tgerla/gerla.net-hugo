@@ -1,7 +1,8 @@
 +++
 date = '2026-02-01T09:14:00-05:00'
-draft = true
+draft = false
 title = 'Wireguard BLE Bridge'
+summary = 'My method for proxying BLE (Bluetooth Low Energy) data from a remote site to my Home Assistant installation.'
 +++
 
 I have a large and complicated Home Assistant installation here at the house. It manages and aggregates a lot of things; small Bluetooth Low Energy (BLE) sensors throughout the house report temperature and humidity, the lights and the garage door are on automated timers.
