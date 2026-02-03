@@ -19,3 +19,5 @@ I'm bringing my personal webpage back because I want to help reclaim the interne
 ----
 
 Thanks for stopping by. If you want periodic updates, the blog RSS feed is available at [/posts/index.xml](/posts/index.xml).
+
+## Blog
