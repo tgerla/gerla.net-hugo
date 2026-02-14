@@ -267,3 +267,16 @@ span.edgeLabel p {
   }
 }
 
+/* SVG backgrounds for light/dark mode */
+figure img[src$=".svg"] {
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+    figure img[src$=".svg"] {
+        background: rgba(255, 255, 255, 0.95);
+    }
+}
+

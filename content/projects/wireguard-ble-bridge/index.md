@@ -5,6 +5,8 @@ title = 'Wireguard BLE Bridge'
 summary = 'My method for proxying BLE (Bluetooth Low Energy) data from a remote site to my Home Assistant installation.'
 +++
 
+{{< figure src="off-grid-ble.svg" alt="A diagram showing the architecture of the system described above.">}}
+
 I have a large and complicated Home Assistant installation here at the house. It manages and aggregates a lot of things; small Bluetooth Low Energy (BLE) sensors throughout the house report temperature and humidity, the lights and the garage door are on automated timers.
 
 We also have a small solar power system out at our [forest property](/projects/lovinhill/). I found myself wondering if it would be possible to proxy the BLE messages from the Victron MPPT controller and the battery's Battery Management System and stream them into my Home Assistant.
@@ -15,6 +17,7 @@ I chatted with Claude for a while and got the networking going pretty easily. I 
 
 After configuring and testing at home, I took the router and BLE proxy (running ESPHome on an esp32 microcontroller) out to the remote site and fired it up. After manually adding the BLE proxy to Home Assistant (mDNSs discovery doesn't work across subnets), I immediately saw stats coming in from the Victron MPPT controller as well as the battery.
 
-{{< figure src="ha-screenshot.png" alt="Home Assistant proxy stats" caption="BLE proxy data flowing through the WireGuard tunnel." >}}
+{{< figure src="ha-screenshot.png" alt="Home Assistant proxy stats">}}
+
 
 [^router]: If I did it over again, I would probably have chosen the GL.iNet AX3000 instead, since it can run TailScale on-device.
