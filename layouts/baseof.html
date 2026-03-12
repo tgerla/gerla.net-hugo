@@ -38,5 +38,6 @@
     {{- if (eq .Site.Params.simpleAnalytics.enable true) -}}
       {{- partial "analytics/simpleanalytics.html" . -}}
     {{- end -}}
+    <script src="/js/gallery-lightbox.js" defer></script>
   </body>
 </html>

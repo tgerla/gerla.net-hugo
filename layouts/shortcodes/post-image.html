@@ -1,0 +1,11 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $width := .Get "width" | default "50%" -}}
+{{- $img := .Page.Resources.GetMatch $src -}}
+{{- $resolvedSrc := $src -}}
+{{- if $img -}}
+  {{- $resolvedSrc = $img.RelPermalink -}}
+{{- end -}}
+<figure class="post-image" style="--post-image-width: {{ $width }};">
+  <img src="{{ $resolvedSrc }}" alt="{{ $alt }}" loading="lazy">
+</figure>

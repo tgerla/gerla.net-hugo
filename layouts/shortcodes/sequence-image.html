@@ -1,0 +1,34 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $caption := .Get "caption" | default $alt -}}
+{{- $step := .Get "step" -}}
+{{- $width := .Get "width" | default "100%" -}}
+{{- $img := .Page.Resources.GetMatch $src -}}
+{{- $resolvedSrc := $src -}}
+{{- if $img -}}
+  {{- $resolvedSrc = $img.RelPermalink -}}
+{{- end -}}
+<article class="photo-sequence__item" style="--photo-sequence-width: {{ $width }};">
+  <figure class="photo-sequence__figure">
+    <a
+      href="{{ $resolvedSrc }}"
+      class="photo-sequence__link"
+      data-gallery-item
+      data-full-src="{{ $resolvedSrc }}"
+      data-alt="{{ $alt }}"
+      aria-label="Open image"
+    >
+      <img src="{{ $resolvedSrc }}" alt="{{ $alt }}" loading="lazy">
+    </a>
+    {{- if or $caption $step -}}
+    <figcaption class="photo-sequence__caption">
+      {{- with $step -}}
+      <span class="photo-sequence__step">{{ . }}</span>
+      {{- end -}}
+      {{- with $caption -}}
+      <span class="photo-sequence__text">{{ . }}</span>
+      {{- end -}}
+    </figcaption>
+    {{- end -}}
+  </figure>
+</article>

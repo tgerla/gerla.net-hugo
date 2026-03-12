@@ -4,12 +4,21 @@
 {{- if not (in $allowed $orientation) }}
   {{- $orientation = "landscape" -}}
 {{- end -}}
-{{- $resources := .Page.Resources.Match $match -}}
+{{- $resources := where (.Page.Resources.Match $match) "MediaType.MainType" "image" -}}
 {{- if $resources }}
 <div class="gallery-grid gallery-grid--{{ $orientation }}">
   {{- range $resources }}
   <figure class="gallery-grid__item">
-    <img src="{{ .RelPermalink }}" alt="{{ .Title | default .Name }}" loading="lazy">
+    <a
+      href="{{ .RelPermalink }}"
+      class="gallery-grid__link"
+      data-gallery-item
+      data-full-src="{{ .RelPermalink }}"
+      data-alt="{{ .Title | default .Name }}"
+      aria-label="Open image"
+    >
+      <img src="{{ .RelPermalink }}" alt="{{ .Title | default .Name }}" loading="lazy">
+    </a>
   </figure>
   {{- end }}
 </div>
