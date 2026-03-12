@@ -2,13 +2,14 @@
 {{- $alt := .Get "alt" | default "" -}}
 {{- $caption := .Get "caption" | default $alt -}}
 {{- $step := .Get "step" -}}
-{{- $width := .Get "width" | default "100%" -}}
+{{- $width := .Get "width" | default "58%" -}}
+{{- $maxHeight := .Get "maxHeight" | default "100svh" -}}
 {{- $img := .Page.Resources.GetMatch $src -}}
 {{- $resolvedSrc := $src -}}
 {{- if $img -}}
   {{- $resolvedSrc = $img.RelPermalink -}}
 {{- end -}}
-<article class="photo-sequence__item" style="--photo-sequence-width: {{ $width }};">
+<article class="photo-sequence__item" style="--photo-sequence-width: {{ $width }}; --photo-sequence-max-height: {{ $maxHeight }};">
   <figure class="photo-sequence__figure">
     <a
       href="{{ $resolvedSrc }}"
